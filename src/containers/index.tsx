@@ -1,4 +1,4 @@
-import { Button, Divider, HStack } from "@chakra-ui/react";
+import { Button, Divider, HStack, Text } from "@chakra-ui/react";
 import { DashboardMenu } from "./DashboardMenu";
 import { MyDashboard } from "./MyDashboard";
 import { useDashboardController } from "@/components/Dashboard";
@@ -11,11 +11,13 @@ import { RandomText } from "./RandomText";
 export function App() {
   const [count, setCount] = useState(0);
   const [randomText, setRandomText] = useState("");
+  const [flushConfigAt, setFlushConfigAt] = useState("");
   const [storageKey, setStorageKey] = useState<StorageKeyEnum>(
     StorageKeyEnum.A
   );
+
   const [dashboardState, api] = useDashboardController(LocalStorageController, {
-    refs: { sayHello: () => {} },
+    refs: { setFlushConfigAt },
     props: { storageKey, count },
   });
 
@@ -37,6 +39,9 @@ export function App() {
         <Button onClick={api.reload}>Reload</Button>
         <Counter />
         <RandomText />
+        <Button variant={"solid"} color="cyan.600">
+          Saved at: {flushConfigAt}
+        </Button>
       </HStack>
       <Divider margin="0 0 8px" />
       <MyDashboard state={dashboardState} />

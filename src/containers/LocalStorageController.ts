@@ -92,6 +92,7 @@ export class LocalStorageController extends DashboardController<
 
     try {
       localStorage.setItem(storageKey, JSON.stringify(config));
+      this.refs?.setFlushConfigAt(new Date().toLocaleTimeString());
       console.log("flushConfig successfully");
     } catch (e) {
       console.error("flushConfig failed", e);

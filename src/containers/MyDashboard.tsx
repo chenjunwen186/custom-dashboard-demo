@@ -24,8 +24,8 @@ type MyDashboardProps = {
 export function MyDashboard({ state }: MyDashboardProps) {
   const { width: windowWidth } = useWindowSize();
   const dashboardWidth = useMemo(() => {
-    if (windowWidth < 800) {
-      return 800;
+    if (windowWidth < 768) {
+      return 768;
     }
 
     return windowWidth;
@@ -68,7 +68,7 @@ function Loader() {
           speed="0.65s"
           emptyColor="gray.200"
           color="blue.500"
-          size={"md"}
+          size={"lg"}
         />
       </Center>
     </Card>

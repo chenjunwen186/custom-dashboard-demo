@@ -3,4 +3,6 @@ export type DashboardControllerProps = {
   count: number;
 };
 
-export type DashboardControllerRefs = {};
+export type DashboardControllerRefs = {
+  setFlushConfigAt: (time: string) => void;
+};
