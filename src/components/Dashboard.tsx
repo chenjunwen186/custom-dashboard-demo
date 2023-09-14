@@ -19,7 +19,6 @@ import { useQuery } from "@tanstack/react-query";
 import {
   DashboardConfigType,
   LayoutConfigType,
-  QueryConfigType,
   WidgetConfigType,
 } from "@/models";
 import { useEvent } from "@/utils";
@@ -130,7 +129,7 @@ function QueryNode(props: QueryNodeProps) {
   }
 
   if (!data) {
-    return wrapProvider(wrapErrorBoundary(<ErrorFallback />));
+    return wrapProvider(wrapErrorBoundary(<Loader />));
   }
 
   return wrapProvider(wrapErrorBoundary(<Component />));
